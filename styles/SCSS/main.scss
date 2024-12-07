@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --btn-bg: #2B2B2B;
+  --body-bg: #090909;
+  --com-color: #aaaaaa;
+  --btn-color: #0a0a0a;
+  --link-color: #949494;
+  --hover-color: #ffffff;
+  --btn-bg-hover: #FAFF00;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in-out;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  color: var(--hover-color);
+  background: var(--body-bg);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.btn-box {
+  gap: 11px;
+  @include flex;
+  justify-content: start;
+
+  button {
+    height: 63px;
+    width: 183px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30.48px;
+    letter-spacing: 0.03em;
+    background: var(--btn-bg);
+    color: #ffffff;
+    border: 1px solid transparent;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--btn-color);
+      background: var(--btn-bg-hover);
+    }
+
+    &:hover i {
+      color: var(--btn-color) !important;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+header {
+  nav {
+    .container {
+      @include flex;
+      padding: 88px 75px 83px 105px;
+
+      .logo {
+        font-size: 33px;
+        font-weight: 700;
+        line-height: 40.23px;
+        letter-spacing: 0.03em;
+
+        span {
+          font-size: 33px;
+          font-weight: 400;
+          line-height: 40.23px;
+          letter-spacing: 0.03em;
+        }
+      }
+
+      .nav-title {
+        gap: 24px;
+        @include flex;
+
+        .nav-link {
+          font-size: 25px;
+          font-weight: 400;
+          line-height: 30.48px;
+          letter-spacing: 0.03em;
+          color: var(--link-color);
+
+          &:hover {
+            color: var(--hover-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  .home-content {
+    .container {
+      @include flex;
+      padding: 0 138px 156px 127px;
+
+      .home-content_box {
+        .userName {
+          font-size: 55px;
+          font-weight: 700;
+          line-height: 67.05px;
+          letter-spacing: 0.03em;
+        }
+
+        .aboutUser {
+          width: 646px;
+          font-size: 25px;
+          font-weight: 400;
+          margin-top: 28px;
+          margin-bottom: 52px;
+          line-height: 30.48px;
+          letter-spacing: 0.03em;
+          color: var(--com-color);
+        }
+
+
+
+        .socialLinks-content {
+          gap: 35px;
+          @include flex;
+          margin-top: 27px;
+          justify-content: start;
+
+          i {
+            font-size: 40px;
+            cursor: pointer;
+
+            &:hover {
+              color: #FAFF00 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 54.86px;
+    letter-spacing: 0.03em;
+  }
+
+  .description {
+    font-size: 35px;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 42.67px;
+    margin-bottom: 137px;
+    letter-spacing: 0.03em;
+    color: var(--btn-bg-hover);
+  }
+
+  .portfolio-content {
+    gap: 148px;
+    @include flex;
+    flex-direction: column;
+    padding: 0 217px 190px 164px;
+
+    .portfolio-box {
+      gap: 55px;
+      @include flex;
+
+      h2 {
+        font-size: 35px;
+        font-weight: 700;
+        text-align: left;
+        line-height: 42.67px;
+        letter-spacing: 0.03em;
+      }
+
+      p {
+        padding: 29px 0;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: left;
+        line-height: 24.38px;
+        letter-spacing: 0.03em;
+        color: var(--com-color);
+      }
+    }
+  }
+
+  .setup-content_big {
+    .setupImage {
+      display: flex;
+      margin: 0 auto;
+      border-radius: 10px;
+      justify-content: center;
+    }
+
+    .setup-content {
+      gap: 61px;
+      @include flex;
+      display: grid;
+      margin-top: 72px;
+      margin-bottom: 152px;
+      justify-content: center;
+      grid-template-columns: auto auto;
+
+      .setup-box {
+        &:nth-child(1) {
+          .setup-box_title {
+            i {
+              transform: rotate(35deg);
+            }
+          }
+        }
+
+        .setup-box_title {
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 36.57px;
+          letter-spacing: 0.03em;
+        }
+
+        ul {
+          color: #FAFF00;
+          list-style: disc;
+
+          li {
+            margin-top: 18px;
+            margin-left: 18px;
+
+            .setup-link {
+              color: #FAFF00;
+              font-size: 25px;
+              font-weight: 400;
+              line-height: 30.48px;
+              letter-spacing: 0.03em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .about-content_big {
+    padding: 0 130px 213px 105px;
+
+    .about-content {
+      @include flex;
+      gap: 52px;
+
+      .about-title1 {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 36.57px;
+        letter-spacing: 0.03em;
+        width: 518px;
+      }
+
+      .about-title2 {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 36.57px;
+        letter-spacing: 0.03em;
+        text-align: left;
+        margin: 30px 0;
+      }
+
+      .about-title3{
+        margin-bottom: 150px;
+      }
+    }
+  }
+
+  .edit-title-btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #0056b3;
+    }
+  
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .testi-btn_content{
+    display: flex;
+    justify-content: end;
+
+    .testi-create{
+      position: relative;
+      left: -184px;
+    }
+  }
+
+  .testimonial-content{
+    color: var(--hover-color);
+
+    .testi-content{
+      text-align: center;
+      padding-bottom: 157px;
+
+      h2{
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 60px;
+      }
+
+      p{
+        font-size: 24px;
+      }
+      span{
+        display: inline-block;
+        font-size: 20px;
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+footer {
+  .container {
+    p {
+      text-align: center;
+      padding: 27px 0;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 30.48px;
+      letter-spacing: 0.03em;
+    }
+  }
+}

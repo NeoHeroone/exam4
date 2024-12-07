@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles/css/minified/main.min.css">
+  <title>Setup</title>
+</head>
+
+<body>
+
+  <header></header>
+  
+  <main>
+    <div class="container">
+      <div class="setup-content_big">
+        <h2 class="title">Setup</h2>
+        <p class="description">My minimalistic setup</p>
+
+        <img width="795px" height="528px" class="setupImage" src=" " alt="">
+
+        <div class="setup-content">
+          <div class="setup-box">
+            <p class="setup-box_title">ASUS X509F
+              <i class="fa-solid fa-arrow-up" style="color: #ffffff;"></i>
+              <button class="edit-title-btn">Edit</button>
+            </p>
+            <ul>
+              <li><a href="#" class="setup-link">Intel Core I7-8th Gen</a></li>
+              <li><a href="#" class="setup-link">RAM 8GB</a></li>
+              <li><a href="#" class="setup-link">HDD 1TB</a></li>
+              <li><a href="#" class="setup-link">Display FHD 15.6” </a></li>
+              <li><a href="#" class="setup-link">NVIDIA® MX250 2GB</a></li>
+            </ul>
+          </div>
+
+          <div class="setup-box">
+            <p class="setup-box_title">ASUS E502S
+              <i class="fa-solid fa-arrow-up" style="color: #ffffff;"></i>
+              <button class="edit-title-btn">Edit</button>
+            </p>
+            <ul>
+              <li><a href="#" class="setup-link">Intel Celeron N3050</a></li>
+              <li><a href="#" class="setup-link">RAM 4GB</a></li>
+              <li><a href="#" class="setup-link">SSD 480 GB </a></li>
+              <li><a href="#" class="setup-link">Display HD 15.6” </a></li>
+              <li><a href="#" class="setup-link">Intel HD Graphics</a></li>
+            </ul>
+          </div>
+
+          <div class="setup-box">
+            <p class="setup-box_title">Keyboard & Mouse
+              <button class="edit-title-btn">Edit</button>
+            </p>
+            <ul>
+              <li><a style="display: block; width: 332px;" href="#" class="setup-link">Rapoo multi-wireless keyboard,
+                  mouse</a></li>
+              <li><a href="#" class="setup-link">AVTECH</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script>
+    document.querySelectorAll('.edit-title-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        const titleElement = this.parentElement;
+        const currentTitle = titleElement.innerText.replace('Edit', '').trim();
+
+        const inputField = document.createElement('input');
+        inputField.type = 'text';
+        inputField.value = currentTitle;
+
+        titleElement.innerHTML = '';
+        titleElement.appendChild(inputField);
+
+        const saveButton = document.createElement('button');
+        saveButton.innerText = 'Save';
+        titleElement.appendChild(saveButton);
+
+        saveButton.addEventListener('click', function () {
+          const newTitle = inputField.value;
+          titleElement.innerHTML = newTitle + ' <i class="fa-solid fa-arrow-up" style="color: #ffffff;"></i>';
+          titleElement.appendChild(button);
+
+          localStorage.setItem('setupBoxTitle', newTitle);
+          localStorage.setItem('setupBoxEditBtn', 'true');
+        });
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTitle = localStorage.getItem('setupBoxTitle');
+      const savedEditBtn = localStorage.getItem('setupBoxEditBtn');
+
+      if (savedTitle) {
+        const titleElement = document.querySelector('.setup-box_title');
+        titleElement.innerHTML = savedTitle + ' <i class="fa-solid fa-arrow-up" style="color: #ffffff;"></i>';
+      }
+
+      if (savedEditBtn === 'true') {
+        const titleElement = document.querySelector('.setup-box_title');
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit-title-btn');
+        editBtn.innerText = 'Edit';
+        titleElement.appendChild(editBtn);
+      }
+    });
+
+  </script>
+  <script src="./app.js"></script>
+
+</body>
+
+</html>
